@@ -1,6 +1,6 @@
 package com.tencent.supersonic.chat.server.parser;
 
-import com.tencent.supersonic.chat.server.pojo.ChatParseContext;
+import com.tencent.supersonic.chat.server.pojo.ParseContext;
 import com.tencent.supersonic.headless.api.pojo.SemanticParseInfo;
 import com.tencent.supersonic.headless.api.pojo.response.ParseResp;
 
@@ -8,8 +8,8 @@ import com.tencent.supersonic.headless.api.pojo.response.ParseResp;
 public class PlainTextParser implements ChatParser {
 
     @Override
-    public void parse(ChatParseContext chatParseContext, ParseResp parseResp) {
-        if (chatParseContext.getAgent().containsAnyTool()) {
+    public void parse(ParseContext parseContext, ParseResp parseResp) {
+        if (parseContext.getAgent().containsAnyTool()) {
             return;
         }
 

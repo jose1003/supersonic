@@ -20,7 +20,7 @@ public class TagTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setChatContext(expectedParseInfo);
+        expectedResult.setParseInfo(expectedParseInfo);
 
         expectedResult.setQueryMode(DetailFilterQuery.QUERY_MODE);
         expectedParseInfo.setAggType(AggregateTypeEnum.NONE);

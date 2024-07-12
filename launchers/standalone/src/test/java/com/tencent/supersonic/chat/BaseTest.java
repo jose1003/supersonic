@@ -4,7 +4,7 @@ import com.tencent.supersonic.BaseApplication;
 import com.tencent.supersonic.chat.api.pojo.request.ChatExecuteReq;
 import com.tencent.supersonic.chat.api.pojo.request.ChatParseReq;
 import com.tencent.supersonic.chat.server.service.AgentService;
-import com.tencent.supersonic.chat.server.service.ChatService;
+import com.tencent.supersonic.chat.server.service.ChatQueryService;
 import com.tencent.supersonic.headless.api.pojo.SchemaElement;
 import com.tencent.supersonic.headless.api.pojo.SemanticParseInfo;
 import com.tencent.supersonic.headless.api.pojo.response.ParseResp;
@@ -28,7 +28,7 @@ public class BaseTest extends BaseApplication {
     protected final String period = "DAY";
 
     @Autowired
-    protected ChatService chatService;
+    protected ChatQueryService chatQueryService;
     @Autowired
     protected AgentService agentService;
 
@@ -44,8 +44,8 @@ public class BaseTest extends BaseApplication {
                 .queryId(parseResp.getQueryId())
                 .saveAnswer(true)
                 .build();
-        QueryResult queryResult = chatService.performExecution(request);
-        queryResult.setChatContext(semanticParseInfo);
+        QueryResult queryResult = chatQueryService.performExecution(request);
+        queryResult.setParseInfo(semanticParseInfo);
         return queryResult;
     }
 
@@ -63,8 +63,8 @@ public class BaseTest extends BaseApplication {
                 .saveAnswer(false)
                 .build();
 
-        QueryResult result = chatService.performExecution(request);
-        result.setChatContext(parseInfo);
+        QueryResult result = chatQueryService.performExecution(request);
+        result.setParseInfo(parseInfo);
         return result;
     }
 
@@ -74,7 +74,7 @@ public class BaseTest extends BaseApplication {
         }
         ChatParseReq chatParseReq = DataUtils.getChatParseReq(chatId, queryText);
         chatParseReq.setAgentId(agentId);
-        return chatService.performParsing(chatParseReq);
+        return chatQueryService.performParsing(chatParseReq);
     }
 
     protected ParseResp submitParse(String queryText, Integer agentId) {
@@ -83,7 +83,7 @@ public class BaseTest extends BaseApplication {
 
     protected ParseResp submitParseWithAgent(String queryText, Integer agentId) {
         ChatParseReq chatParseReq = DataUtils.getChatParseReqWithAgent(10, queryText, agentId);
-        return chatService.performParsing(chatParseReq);
+        return chatQueryService.performParsing(chatParseReq);
     }
 
     protected void assertSchemaElements(Set<SchemaElement> expected, Set<SchemaElement> actual) {
@@ -96,8 +96,8 @@ public class BaseTest extends BaseApplication {
     }
 
     protected void assertQueryResult(QueryResult expected, QueryResult actual) {
-        SemanticParseInfo expectedParseInfo = expected.getChatContext();
-        SemanticParseInfo actualParseInfo = actual.getChatContext();
+        SemanticParseInfo expectedParseInfo = expected.getParseInfo();
+        SemanticParseInfo actualParseInfo = actual.getParseInfo();
 
         assertEquals(QueryState.SUCCESS, actual.getQueryState());
         assertEquals(expected.getQueryMode(), actual.getQueryMode());

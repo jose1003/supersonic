@@ -8,6 +8,7 @@ import com.tencent.supersonic.common.pojo.enums.Text2SQLType;
 import com.tencent.supersonic.common.util.ContextUtils;
 import com.tencent.supersonic.headless.api.pojo.QueryDataType;
 import com.tencent.supersonic.headless.api.pojo.SchemaMapInfo;
+import com.tencent.supersonic.headless.api.pojo.SemanticParseInfo;
 import com.tencent.supersonic.headless.api.pojo.SemanticSchema;
 import com.tencent.supersonic.common.pojo.SqlExemplar;
 import com.tencent.supersonic.headless.api.pojo.enums.MapModeEnum;
@@ -54,6 +55,7 @@ public class ChatQueryContext {
     private ChatModelConfig modelConfig;
     private PromptConfig promptConfig;
     private List<SqlExemplar> dynamicExemplars;
+    private SemanticParseInfo contextParseInfo;
 
     public List<SemanticQuery> getCandidateQueries() {
         ParserConfig parserConfig = ContextUtils.getBean(ParserConfig.class);

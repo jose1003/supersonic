@@ -9,6 +9,7 @@ import com.tencent.supersonic.common.pojo.SqlExemplar;
 import com.tencent.supersonic.common.pojo.enums.Text2SQLType;
 import com.tencent.supersonic.headless.api.pojo.QueryDataType;
 import com.tencent.supersonic.headless.api.pojo.SchemaMapInfo;
+import com.tencent.supersonic.headless.api.pojo.SemanticParseInfo;
 import com.tencent.supersonic.headless.api.pojo.enums.MapModeEnum;
 import lombok.Data;
 
@@ -30,4 +31,5 @@ public class QueryNLReq {
     private ChatModelConfig modelConfig;
     private PromptConfig promptConfig;
     private List<SqlExemplar> dynamicExemplars = Lists.newArrayList();
+    private SemanticParseInfo contextParseInfo;
 }

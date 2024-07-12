@@ -5,7 +5,7 @@ import com.tencent.supersonic.headless.api.pojo.SemanticParseInfo;
 import lombok.Data;
 
 @Data
-public class ChatExecuteContext {
+public class ExecuteContext {
     private User user;
     private Integer agentId;
     private Long queryId;
