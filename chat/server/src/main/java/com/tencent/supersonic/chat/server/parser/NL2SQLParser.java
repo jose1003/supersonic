@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 import static com.tencent.supersonic.chat.server.parser.ParserConfig.PARSER_MULTI_TURN_ENABLE;
 
 @Slf4j
-public class NL2SQLParser implements ChatParser {
+public class NL2SQLParser implements ChatQueryParser {
 
     private static final Logger keyPipelineLog = LoggerFactory.getLogger("keyPipeline");
 

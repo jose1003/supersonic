@@ -22,7 +22,7 @@ public class MultiTurnsTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricFilterQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);
@@ -48,7 +48,7 @@ public class MultiTurnsTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricFilterQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);
@@ -72,7 +72,7 @@ public class MultiTurnsTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricFilterQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);

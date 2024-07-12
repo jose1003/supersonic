@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 import static com.tencent.supersonic.chat.server.parser.ParserConfig.PARSER_MULTI_TURN_ENABLE;
 
-public class PlainTextExecutor implements ChatExecutor {
+public class PlainTextExecutor implements ChatQueryExecutor {
 
     private static final String INSTRUCTION = ""
             + "#Role: You are a nice person to talk to.\n"

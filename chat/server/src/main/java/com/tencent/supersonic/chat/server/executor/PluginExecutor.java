@@ -6,7 +6,7 @@ import com.tencent.supersonic.chat.server.pojo.ExecuteContext;
 import com.tencent.supersonic.headless.api.pojo.SemanticParseInfo;
 import com.tencent.supersonic.headless.api.pojo.response.QueryResult;
 
-public class PluginExecutor implements ChatExecutor {
+public class PluginExecutor implements ChatQueryExecutor {
 
     @Override
     public QueryResult execute(ExecuteContext executeContext) {

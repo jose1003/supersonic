@@ -5,7 +5,7 @@ import com.tencent.supersonic.headless.api.pojo.SemanticParseInfo;
 import com.tencent.supersonic.headless.api.pojo.response.ParseResp;
 
 
-public class PlainTextParser implements ChatParser {
+public class PlainTextParser implements ChatQueryParser {
 
     @Override
     public void parse(ParseContext parseContext, ParseResp parseResp) {

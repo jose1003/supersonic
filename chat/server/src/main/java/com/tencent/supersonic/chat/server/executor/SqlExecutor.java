@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class SqlExecutor implements ChatExecutor {
+public class SqlExecutor implements ChatQueryExecutor {
 
     @SneakyThrows
     @Override
@@ -76,7 +76,7 @@ public class SqlExecutor implements ChatExecutor {
         long startTime = System.currentTimeMillis();
         SemanticQueryResp queryResp = semanticLayer.queryByReq(sqlReq, executeContext.getUser());
         QueryResult queryResult = new QueryResult();
-        queryResult.setParseInfo(parseInfo);
+        queryResult.setChatContext(parseInfo);
         queryResult.setQueryMode(parseInfo.getQueryMode());
         if (queryResp != null) {
             queryResult.setQueryAuthorization(queryResp.getQueryAuthorization());

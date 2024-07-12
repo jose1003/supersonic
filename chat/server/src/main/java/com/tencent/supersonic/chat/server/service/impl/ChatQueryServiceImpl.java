@@ -6,8 +6,8 @@ import com.tencent.supersonic.chat.api.pojo.request.ChatExecuteReq;
 import com.tencent.supersonic.chat.api.pojo.request.ChatParseReq;
 import com.tencent.supersonic.chat.api.pojo.request.ChatQueryDataReq;
 import com.tencent.supersonic.chat.server.agent.Agent;
-import com.tencent.supersonic.chat.server.executor.ChatExecutor;
-import com.tencent.supersonic.chat.server.parser.ChatParser;
+import com.tencent.supersonic.chat.server.executor.ChatQueryExecutor;
+import com.tencent.supersonic.chat.server.parser.ChatQueryParser;
 import com.tencent.supersonic.chat.server.pojo.ExecuteContext;
 import com.tencent.supersonic.chat.server.pojo.ParseContext;
 import com.tencent.supersonic.chat.server.processor.execute.ExecuteResultProcessor;
@@ -55,8 +55,8 @@ public class ChatQueryServiceImpl implements ChatQueryService {
     @Autowired
     private ChatContextService chatContextService;
 
-    private List<ChatParser> chatParsers = ComponentFactory.getChatParsers();
-    private List<ChatExecutor> chatExecutors = ComponentFactory.getChatExecutors();
+    private List<ChatQueryParser> chatQueryParsers = ComponentFactory.getChatParsers();
+    private List<ChatQueryExecutor> chatQueryExecutors = ComponentFactory.getChatExecutors();
     private List<ParseResultProcessor> parseResultProcessors = ComponentFactory.getParseProcessors();
     private List<ExecuteResultProcessor> executeResultProcessors = ComponentFactory.getExecuteProcessors();
 
@@ -77,8 +77,8 @@ public class ChatQueryServiceImpl implements ChatQueryService {
         chatManageService.createChatQuery(chatParseReq, parseResp);
         ParseContext parseContext = buildParseContext(chatParseReq);
         supplyMapInfo(parseContext);
-        for (ChatParser chatParser : chatParsers) {
-            chatParser.parse(parseContext, parseResp);
+        for (ChatQueryParser chatQueryParser : chatQueryParsers) {
+            chatQueryParser.parse(parseContext, parseResp);
         }
         for (ParseResultProcessor processor : parseResultProcessors) {
             processor.process(parseContext, parseResp);
@@ -94,8 +94,8 @@ public class ChatQueryServiceImpl implements ChatQueryService {
     public QueryResult performExecution(ChatExecuteReq chatExecuteReq) {
         QueryResult queryResult = new QueryResult();
         ExecuteContext executeContext = buildExecuteContext(chatExecuteReq);
-        for (ChatExecutor chatExecutor : chatExecutors) {
-            queryResult = chatExecutor.execute(executeContext);
+        for (ChatQueryExecutor chatQueryExecutor : chatQueryExecutors) {
+            queryResult = chatQueryExecutor.execute(executeContext);
             if (queryResult != null) {
                 break;
             }

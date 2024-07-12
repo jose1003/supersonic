@@ -45,7 +45,7 @@ public class BaseTest extends BaseApplication {
                 .saveAnswer(true)
                 .build();
         QueryResult queryResult = chatQueryService.performExecution(request);
-        queryResult.setParseInfo(semanticParseInfo);
+        queryResult.setChatContext(semanticParseInfo);
         return queryResult;
     }
 
@@ -64,7 +64,7 @@ public class BaseTest extends BaseApplication {
                 .build();
 
         QueryResult result = chatQueryService.performExecution(request);
-        result.setParseInfo(parseInfo);
+        result.setChatContext(parseInfo);
         return result;
     }
 
@@ -96,8 +96,8 @@ public class BaseTest extends BaseApplication {
     }
 
     protected void assertQueryResult(QueryResult expected, QueryResult actual) {
-        SemanticParseInfo expectedParseInfo = expected.getParseInfo();
-        SemanticParseInfo actualParseInfo = actual.getParseInfo();
+        SemanticParseInfo expectedParseInfo = expected.getChatContext();
+        SemanticParseInfo actualParseInfo = actual.getChatContext();
 
         assertEquals(QueryState.SUCCESS, actual.getQueryState());
         assertEquals(expected.getQueryMode(), actual.getQueryMode());

@@ -209,7 +209,7 @@ public class S2ChatLayerService implements ChatLayerService {
         }
         SemanticQueryReq semanticQueryReq = semanticQuery.buildSemanticQueryReq();
         QueryResult queryResult = doExecution(semanticQueryReq, semanticQuery.getParseInfo(), user);
-        queryResult.setParseInfo(semanticQuery.getParseInfo());
+        queryResult.setChatContext(semanticQuery.getParseInfo());
         DataSetSchema dataSetSchema = semanticSchema.getDataSetSchemaMap().get(parseInfo.getDataSetId());
         SemanticLayerService semanticService = ContextUtils.getBean(SemanticLayerService.class);
         EntityInfo entityInfo = semanticService.getEntityInfo(parseInfo, dataSetSchema, user);

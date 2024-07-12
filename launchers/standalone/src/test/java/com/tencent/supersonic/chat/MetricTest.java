@@ -31,7 +31,7 @@ public class MetricTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricFilterQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);
@@ -55,7 +55,7 @@ public class MetricTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricModelQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);
@@ -74,7 +74,7 @@ public class MetricTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricGroupByQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);
@@ -96,7 +96,7 @@ public class MetricTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricFilterQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);
@@ -122,7 +122,7 @@ public class MetricTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricTopNQuery.QUERY_MODE);
         expectedParseInfo.setAggType(SUM);
@@ -143,7 +143,7 @@ public class MetricTest extends BaseTest {
         QueryResult actualResult = submitNewChat("近7天超音数各部门的访问次数总和", DataUtils.metricAgentId);
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricGroupByQuery.QUERY_MODE);
         expectedParseInfo.setAggType(SUM);
@@ -169,7 +169,7 @@ public class MetricTest extends BaseTest {
 
         QueryResult expectedResult = new QueryResult();
         SemanticParseInfo expectedParseInfo = new SemanticParseInfo();
-        expectedResult.setParseInfo(expectedParseInfo);
+        expectedResult.setChatContext(expectedParseInfo);
 
         expectedResult.setQueryMode(MetricFilterQuery.QUERY_MODE);
         expectedParseInfo.setAggType(NONE);

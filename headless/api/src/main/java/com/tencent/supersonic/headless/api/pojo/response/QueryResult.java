@@ -19,7 +19,7 @@ public class QueryResult {
     private QueryState queryState = QueryState.EMPTY;
     private List<QueryColumn> queryColumns;
     private QueryAuthorization queryAuthorization;
-    private SemanticParseInfo parseInfo;
+    private SemanticParseInfo chatContext;
     private Object response;
     private List<Map<String, Object>> queryResults;
     private String textResult;
